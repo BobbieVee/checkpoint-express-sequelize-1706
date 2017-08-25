@@ -141,7 +141,7 @@ describe('The `Article` model', function () {
       });
 
       // This is mostly to avoid a corner case seen during `Model.update`.
-      xit('returns empty string for missing `content`', function(){
+      it('returns empty string for missing `content`', function(){
 
         article.content = undefined;
 
@@ -161,7 +161,7 @@ describe('The `Article` model', function () {
        *
        * http://docs.sequelizejs.com/manual/tutorial/models-definition.html#expansion-of-models
        */
-      xit('truncates the `content`', function () {
+      it('truncates the `content`', function () {
 
         expect(article.content).to.equal(fullText);
 
@@ -170,7 +170,7 @@ describe('The `Article` model', function () {
 
       });
 
-      xit('accepts any length', function () {
+      it('accepts any length', function () {
 
         expect(article.content).to.equal(fullText);
 
@@ -180,7 +180,7 @@ describe('The `Article` model', function () {
 
       });
 
-      xit('does not save the instance once truncated', function() {
+      it('does not save the instance once truncated', function() {
 
         expect(article.content).to.equal(fullText);
 
@@ -216,7 +216,7 @@ describe('The `Article` model', function () {
         return Promise.all(articles);
       });
 
-      xit('finds one specific article by its `title`', function () {
+      it('finds one specific article by its `title`', function () {
 
         return Article.findByTitle('Migratory Birds')
         .then(function (foundArticle) {
@@ -239,7 +239,7 @@ describe('The `Article` model', function () {
      * http://docs.sequelizejs.com/manual/tutorial/associations.html#belongsto
      */
 
-    xit("belongs to a user, who is stored as the article's `author`", function() {
+    it("belongs to a user, who is stored as the article's `author`", function() {
 
       var creatingUser = User.create({ name: 'Alatar the Blue'});
       var creatingArticle = Article.create({
@@ -287,7 +287,7 @@ describe('The `Article` model', function () {
 
       return Article.findOne({where: {title: 'Biological Immortality'}})
       .then(function(foundArticle) {
-        expect(foundArticle.version).to.equal(0);
+          expect(foundArticle.version).to.equal(0);
       });
 
     });

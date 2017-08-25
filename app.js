@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', function (req, res, next) {
-  res.send('Welcome to Articles! Check out our lovely routes.');
-});
+// app.get('/', function (req, res, next) {
+//   res.json('Welcome to Articles! Check out our lovely routes.');
+// });
 
 app.use('/', routes);
 
