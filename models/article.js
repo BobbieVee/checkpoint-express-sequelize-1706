@@ -21,11 +21,13 @@ var Article = db.define('article', {
 		allowNull: false,
 		validate: {
 			notEmpty: true
-		},
+		}
+	},
 	version: {
-		type: Sequelize.INTEGER
-	}  
-	}
+		type: Sequelize.INTEGER,
+		defaultValue: 0
+	} 
+
 },{
 	getterMethods: {
 		snippet() {
@@ -33,8 +35,8 @@ var Article = db.define('article', {
 		}
 	},
 	hooks: {
-		beforeSave: () => {
-			return article.version = 0 ;
+		beforeSave: (content) => {
+			content.version = content.getDataValue('version') + 1 ;
 		}
 	} 
 }

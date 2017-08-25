@@ -283,7 +283,7 @@ describe('The `Article` model', function () {
       });
     });
 
-    xit('is originally 0, even if not explicitly set', function() {
+    it('is originally 0, even if not explicitly set', function() {
 
       return Article.findOne({where: {title: 'Biological Immortality'}})
       .then(function(foundArticle) {
@@ -292,7 +292,7 @@ describe('The `Article` model', function () {
 
     });
 
-    xit('increments by 1 every time the article is updated', function() {
+    it('increments by 1 every time the article is updated', function() {
 
       return Article.findOne({where: {title: 'Biological Immortality'}})
       .then(function(foundArticle) {
